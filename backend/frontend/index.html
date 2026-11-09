@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>IMS.</h2>
+        <p class="menu-label">MENU</p>
+        <a href="#dashboard" class="active">Dashboard</a>
+        <a href="#inventory">Inventory</a>
+    </aside>
+
+    <main class="main">
+        <header>
+            <div>
+                <h1>Inventory Management</h1>
+                <p>Manage and monitor your products.</p>
+            </div>
+            <span class="status">Inventory System</span>
+        </header>
+
+        <section id="dashboard">
+            <h2>Dashboard Overview</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <p>Total Products</p>
+                    <h2 id="totalProducts">0</h2>
+                </div>
+                <div class="stat-card">
+                    <p>Total Stock</p>
+                    <h2 id="totalStock">0</h2>
+                </div>
+                <div class="stat-card">
+                    <p>Inventory Value</p>
+                    <h2 id="inventoryValue">₱0.00</h2>
+                </div>
+                <div class="stat-card">
+                    <p>Low Stock</p>
+                    <h2 id="lowStock">0</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="inventory" class="inventory-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Product Inventory</h2>
+                    <p>Manage your product records here.</p>
+                </div>
+                <button id="addButton">+ Add Product</button>
+            </div>
+
+            <div class="form-container" id="formContainer" hidden>
+                <h3 id="formTitle">Add New Product</h3>
+
+                <form id="productForm">
+                    <input type="hidden" id="productId">
+
+                    <div class="form-grid">
+                        <div>
+                            <label>Product Name</label>
+                            <input type="text" id="productName" required
+                                   placeholder="Enter product name">
+                        </div>
+
+                        <div>
+                            <label>Category</label>
+                            <input type="text" id="category" required
+                                   placeholder="Enter category">
+                        </div>
+
+                        <div>
+                            <label>Price (₱)</label>
+                            <input type="number" id="price" min="0"
+                                   step="0.01" required placeholder="0.00">
+                        </div>
+
+                        <div>
+                            <label>Quantity</label>
+                            <input type="number" id="quantity" min="0"
+                                   step="1" required placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="saveButton">Save Product</button>
+                        <button type="button" id="cancelButton"
+                                class="cancel">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <input type="search" id="searchInput"
+                   placeholder="Search product name...">
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTable">
+                        <tr>
+                            <td colspan="7">Loading products...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <p id="message" role="status"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
